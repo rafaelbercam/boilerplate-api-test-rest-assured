@@ -20,7 +20,6 @@ public class CartRequests extends RequestSpecificationSetup {
         return given()
                 .spec(requestSpecification)
                 .header("authorization", token)
-                .header()
                 .body(cart.createCart(_id)).
             when().post("/carrinhos").
             then().extract().response();
