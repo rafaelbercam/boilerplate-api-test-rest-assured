@@ -3,13 +3,15 @@ package br.com.restassured.requests.login;
 import br.com.restassured.commons.RequestSpecificationSetup;
 import br.com.restassured.data.login.DataLogin;
 import io.restassured.response.Response;
-import static io.restassured.RestAssured.*;
+import static io.restassured.RestAssured.given;
 
-public class LoginRequests  extends RequestSpecificationSetup {
+public class LoginRequests  {
+
+    RequestSpecificationSetup spec = new RequestSpecificationSetup();
     public Response postLoginSuccess(){
         DataLogin login = new DataLogin();
         return given()
-                .spec(requestSpecification)
+                .spec(spec.setRequestSpecification())
                 .body(login.getLoginSuccess(login)).
             when()
                 .post("/login").
@@ -19,7 +21,7 @@ public class LoginRequests  extends RequestSpecificationSetup {
     public Response postLoginFail(){
         DataLogin login = new DataLogin();
         return given()
-                .spec(requestSpecification)
+                .spec(spec.setRequestSpecification())
                 .body(login.getLoginFail(login)).
                         when()
                 .post("/login").
@@ -29,7 +31,7 @@ public class LoginRequests  extends RequestSpecificationSetup {
     public Response postLoginEmailRequired(){
         DataLogin login = new DataLogin();
         return given()
-                .spec(requestSpecification)
+                .spec(spec.setRequestSpecification())
                 .body(login.getLoginEmailRequired(login)).
                         when()
                 .post("/login").

@@ -12,13 +12,14 @@ import static br.com.restassured.commons.HandleProperties.getValue;
 public class RequestSpecificationSetup {
 
     public static RequestSpecification requestSpecification;
-    @BeforeClass
-    public static void setRequestSpecification(){
+    public static RequestSpecification setRequestSpecification(){
         requestSpecification = new RequestSpecBuilder()
                 .setBaseUri(getValue("APP_URL"))
                 .setContentType(ContentType.JSON)
                 .addFilter( new ResponseLoggingFilter())
                 .addFilter( new RequestLoggingFilter())
                 .build();
+
+        return requestSpecification;
     }
 }

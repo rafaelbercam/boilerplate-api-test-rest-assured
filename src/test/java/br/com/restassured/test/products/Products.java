@@ -12,7 +12,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 
-public class Products extends RequestSpecificationSetup {
+public class Products {
     private final ProductsRequests request = new ProductsRequests();
     private final LoginRequests login = new LoginRequests();
     private static Response response;

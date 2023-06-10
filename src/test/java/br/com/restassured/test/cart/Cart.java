@@ -11,7 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
-public class Cart extends RequestSpecificationSetup {
+public class Cart {
 
     private final LoginRequests login = new LoginRequests();
     private final CartRequests request = new CartRequests();

@@ -4,18 +4,19 @@ import br.com.restassured.commons.RequestSpecificationSetup;
 import br.com.restassured.data.products.DataProducts;
 import io.restassured.response.Response;
 import static io.restassured.RestAssured.*;
-public class ProductsRequests extends RequestSpecificationSetup {
+public class ProductsRequests {
 
+    RequestSpecificationSetup spec = new RequestSpecificationSetup();
     public Response getProducts(){
         return given()
-                .spec(requestSpecification).
+                .spec(spec.setRequestSpecification()).
             when().get("/produtos").
             then().extract().response();
     }
 
     public Response getProductById(String _id){
         return given()
-                .spec(requestSpecification).
+                .spec(spec.setRequestSpecification()).
             when().get("/produtos/"+_id).
             then().extract().response();
     }
@@ -24,7 +25,7 @@ public class ProductsRequests extends RequestSpecificationSetup {
         DataProducts product = new DataProducts();
 
         return given()
-                .spec(requestSpecification)
+                .spec(spec.setRequestSpecification())
                 .header("Authorization", token)
                 .body(product.getProduct(product)).
             when().post("/produtos").
@@ -35,7 +36,7 @@ public class ProductsRequests extends RequestSpecificationSetup {
         DataProducts product = new DataProducts();
 
         return given()
-                .spec(requestSpecification)
+                .spec(spec.setRequestSpecification())
                 .header("Authorization",token)
                 .body(product.getProduct(product)).
             when().put("/produtos/"+_id).
@@ -44,7 +45,7 @@ public class ProductsRequests extends RequestSpecificationSetup {
 
     public Response deleteProduct(String token, String _id){
         return given()
-                .spec(requestSpecification)
+                .spec(spec.setRequestSpecification())
                 .header("Authorization", token).
             when().delete("/produtos/"+_id).
             then().extract().response();

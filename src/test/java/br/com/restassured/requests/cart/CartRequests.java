@@ -6,11 +6,13 @@ import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.*;
 
-public class CartRequests extends RequestSpecificationSetup {
+public class CartRequests {
+
+    RequestSpecificationSetup spec = new RequestSpecificationSetup();
 
     public Response getCarts(){
         return given()
-                .spec(requestSpecification).
+                .spec(spec.setRequestSpecification()).
             when().get("/carrinhos").
             then().extract().response();
     }
@@ -18,7 +20,7 @@ public class CartRequests extends RequestSpecificationSetup {
     public Response postCart(String token, String _id){
         DataCart cart = new DataCart();
         return given()
-                .spec(requestSpecification)
+                .spec(spec.setRequestSpecification())
                 .header("authorization", token)
                 .body(cart.createCart(_id)).
             when().post("/carrinhos").

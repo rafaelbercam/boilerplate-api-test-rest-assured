@@ -8,11 +8,12 @@ import javax.xml.crypto.Data;
 
 import static io.restassured.RestAssured.*;
 import static br.com.restassured.commons.HandleProperties.getValue;
-public class UserRequests extends RequestSpecificationSetup {
+public class UserRequests {
 
+    RequestSpecificationSetup spec = new RequestSpecificationSetup();
     public Response getUsers(){
         return given()
-                .spec(requestSpecification).
+                .spec(spec.setRequestSpecification()).
             when().get("/usuarios").
             then().extract().response();
     }
@@ -21,7 +22,7 @@ public class UserRequests extends RequestSpecificationSetup {
         DataUser user = new DataUser();
 
         return given()
-                .spec(requestSpecification)
+                .spec(spec.setRequestSpecification())
                 .body(user.getUserSuccess(user)).
             when().post("/usuarios").
             then().extract().response();
@@ -33,7 +34,7 @@ public class UserRequests extends RequestSpecificationSetup {
         user.setEmail(getValue("USER"));
 
         return given()
-                .spec(requestSpecification)
+                .spec(spec.setRequestSpecification())
                 .body(user).
             when().post("/usuarios").
             then().extract().response();
@@ -42,7 +43,7 @@ public class UserRequests extends RequestSpecificationSetup {
     public Response editUser(String _id){
         DataUser user = new DataUser();
         return given()
-                .spec(requestSpecification)
+                .spec(spec.setRequestSpecification())
                 .body(user.getUserSuccess(user)).
             when().put("/usuarios/"+_id).
             then().extract().response();
@@ -50,7 +51,7 @@ public class UserRequests extends RequestSpecificationSetup {
 
     public Response deleteUser(String _id){
         return given()
-                .spec(requestSpecification).
+                .spec(spec.setRequestSpecification()).
             when().delete("/usuarios/"+_id).
             then().extract().response();
     }
