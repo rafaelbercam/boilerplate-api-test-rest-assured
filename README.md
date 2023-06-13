@@ -49,11 +49,11 @@ Clone project
 
 - Clone este repositório para sua maquina usando http or ssh, por exemplo:
 
-`git clone https://exemplo.com`
+`git clone https://github.com/rafaelbercam/boilerplate-api-test-rest-assured.git`
 
 - Instale todas as dependências (pom.xml)  usando mvn install e execute os testes:
 
-`cd /<pasta_do_prjeto>`
+`cd boilerplate-api-test-rest-assured`
 
 `mvn install`
 
@@ -85,7 +85,7 @@ mvn install
 ## __Rodar os testes__
 Basta rodar o comando
 ```
-mvn test -Dtest=<nome-da-classe>
+mvn test -Dtest=AllIntegratedTests
 ```
 
 ## __Configuração do Projeto__
@@ -100,7 +100,6 @@ O projeto esta dividido da seguinte maneira:
            [data] -> Classes que retornam objetos para serem parseados nas requisições.
            [requests] -> Classes que retornam métodos que disparam as requisições do REST-assured
            [runner] - Classes que rodam suites de testes específicas usando o `@RunWith` do JUnit4
-           [schema] -> Arquivos de Schema no formato JSON para com as validações de contrato com API
            [tests] -> Arquivos de Teste no forma JUnit
         [resources] -> Arquivo de configuração das variáveis de ambiente.
 
@@ -134,7 +133,7 @@ import io.restassured.response.Response;
 Exemplo da Classe:
 
 ```java
-public class LoginRequests extends RequestSpecificationSetup {
+public class LoginRequests {
     public Response postLogin(){
        DataLogin login = new DataLogin();
        return given()
@@ -147,10 +146,6 @@ public class LoginRequests extends RequestSpecificationSetup {
 }
 ```
 
-### __schema__
-
-Ficam localizados os arquivos de schema para validação dos testes.
-
 
 ### __test__
 Em ``test``, poderão ser colocados os arquivos de teste no formato do JUnit.
@@ -159,7 +154,7 @@ Em ``test``, poderão ser colocados os arquivos de teste no formato do JUnit.
 Exemplo da classe:
 
 ```java
-public class Login extends RequestSpecificationSetup {
+public class Login {
 
     private final LoginRequests request = new LoginRequests();
     private static Response response;
