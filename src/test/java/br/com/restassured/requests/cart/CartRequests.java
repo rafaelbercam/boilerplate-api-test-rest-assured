@@ -31,4 +31,20 @@ public class CartRequests {
             when().post("/carrinhos").
             then().extract().response();
     }
+
+    public Response deleteCartCompletePurchase(String token){
+        return given()
+                .spec(spec.setRequestSpecification())
+                .header("authorization", token).
+            when().delete("/carrinhos/concluir-compra").
+            then().extract().response();
+    }
+
+    public Response deleteCartCancelPurchase(String token){
+        return given()
+                .spec(spec.setRequestSpecification())
+                .header("authorization", token).
+                when().delete("/carrinhos/cancelar-compra").
+                then().extract().response();
+    }
 }

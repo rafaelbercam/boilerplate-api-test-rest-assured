@@ -1,5 +1,7 @@
 package br.com.restassured.data.login;
 
+import br.com.restassured.data.user.DataUser;
+
 import static br.com.restassured.commons.HandleProperties.getValue;
 public class DataLogin {
 
@@ -10,6 +12,13 @@ public class DataLogin {
     public DataLogin getLoginSuccess(DataLogin login){
         login.setEmail(getValue("USER"));
         login.setPassword(getValue("PASSWORD"));
+        return login;
+    }
+
+    public DataLogin getLoginUser(DataUser user){
+        DataLogin login = new DataLogin();
+        login.setEmail(user.getEmail());
+        login.setPassword(user.getPassword());
         return login;
     }
 

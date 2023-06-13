@@ -1,6 +1,7 @@
 package br.com.restassured.test.user;
 
 import br.com.restassured.commons.RequestSpecificationSetup;
+import br.com.restassured.data.user.DataUser;
 import br.com.restassured.requests.user.UserRequests;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
@@ -21,7 +22,8 @@ public class User extends RequestSpecificationSetup {
 
     @Test
     public void postNewUser(){
-        response = request.createUser();
+        DataUser user = new DataUser();
+        response = request.createUser(user);
         assertEquals(HttpStatus.SC_CREATED, response.statusCode());
         assertEquals("Cadastro realizado com sucesso", response.getBody().jsonPath().get("message"));
         _id = response.getBody().jsonPath().get("_id");

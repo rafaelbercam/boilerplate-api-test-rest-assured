@@ -18,9 +18,7 @@ public class UserRequests {
             then().extract().response();
     }
 
-    public Response createUser(){
-        DataUser user = new DataUser();
-
+    public Response createUser(DataUser user){
         return given()
                 .spec(spec.setRequestSpecification())
                 .body(user.getUserSuccess(user)).
