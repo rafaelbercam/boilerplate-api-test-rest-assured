@@ -1,22 +1,25 @@
 package br.com.restassured.data.cart;
 
-import org.json.JSONObject;
+import java.util.ArrayList;
 
 public class DataCart {
 
-    private String cart;
+    public ArrayList<CartProducts> produtos;
 
-    public String getCart() {
-        return cart;
+    public DataCart(){
+        produtos = new ArrayList<>();
     }
 
-    public void setCart(String cart) {
-        this.cart = cart;
+    public void adicionarProduto(CartProducts produto) {
+        produtos.add(produto);
     }
 
-    public JSONObject createCart(String _id){
-        setCart("{\"produtos\":[{\"idProduto\":"+_id+",\"quantidade\":4}]}");
-        JSONObject jsonObj = new JSONObject(cart);
-        return jsonObj;
+    public void removerProduto(CartProducts produto) {
+        produtos.remove(produto);
     }
+
+    public ArrayList<CartProducts> getProdutos() {
+        return produtos;
+    }
+
 }
