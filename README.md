@@ -3,8 +3,8 @@
 ## __Ambiente__
 Para executar os testes localmente, estou utilizando o ServeRest
 
-<p align="center">
- <img alt="Logo do ServeRest" src="https://user-images.githubusercontent.com/29241659/115161869-6a017e80-a076-11eb-9bbe-c391eff410db.png" height="120">
+<p align="left">
+ <img alt="Logo do ServeRest" src="https://user-images.githubusercontent.com/29241659/115161869-6a017e80-a076-11eb-9bbe-c391eff410db.png" height="80">
 </p>
 
 Link do Repo: https://github.com/ServeRest/ServeRest
