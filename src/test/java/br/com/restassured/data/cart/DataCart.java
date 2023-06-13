@@ -14,12 +14,4 @@ public class DataCart {
         produtos.add(produto);
     }
 
-    public void removerProduto(CartProducts produto) {
-        produtos.remove(produto);
-    }
-
-    public ArrayList<CartProducts> getProdutos() {
-        return produtos;
-    }
-
 }

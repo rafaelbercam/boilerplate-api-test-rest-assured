@@ -1,6 +1,5 @@
 package br.com.restassured.test.products;
 
-import br.com.restassured.commons.RequestSpecificationSetup;
 import br.com.restassured.requests.login.LoginRequests;
 import br.com.restassured.requests.products.ProductsRequests;
 import io.restassured.response.Response;

@@ -1,6 +1,5 @@
 package br.com.restassured.test.login;
 
-import br.com.restassured.commons.RequestSpecificationSetup;
 import br.com.restassured.requests.login.LoginRequests;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;

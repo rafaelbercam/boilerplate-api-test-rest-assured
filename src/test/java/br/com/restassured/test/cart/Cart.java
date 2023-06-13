@@ -1,8 +1,5 @@
 package br.com.restassured.test.cart;
 
-import br.com.restassured.commons.RequestSpecificationSetup;
-import br.com.restassured.data.cart.CartProducts;
-import br.com.restassured.data.cart.DataCart;
 import br.com.restassured.data.user.DataUser;
 import br.com.restassured.requests.cart.CartRequests;
 import br.com.restassured.requests.login.LoginRequests;
@@ -10,13 +7,8 @@ import br.com.restassured.requests.products.ProductsRequests;
 import br.com.restassured.requests.user.UserRequests;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
-import org.json.JSONObject;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
-
-import javax.xml.crypto.Data;
-
 import static org.junit.Assert.assertEquals;
 
 public class Cart {

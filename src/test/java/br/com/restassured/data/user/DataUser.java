@@ -28,11 +28,6 @@ public class DataUser {
         return user;
     }
 
-
-    public String getNome() {
-        return nome;
-    }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -51,10 +46,6 @@ public class DataUser {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getAdministrador() {
-        return administrador;
     }
 
     public void setAdministrador(String administrador) {

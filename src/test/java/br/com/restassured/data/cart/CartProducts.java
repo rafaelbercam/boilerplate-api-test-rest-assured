@@ -15,11 +15,4 @@ public class CartProducts {
         this.quantidade = quantidade;
     }
 
-    public void setIdProduto(String idProduto) {
-        this.idProduto = idProduto;
-    }
-
-    public void setQuantidade(Integer quantidade) {
-        this.quantidade = quantidade;
-    }
 }
