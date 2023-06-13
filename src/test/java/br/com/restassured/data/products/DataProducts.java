@@ -1,14 +1,21 @@
 package br.com.restassured.data.products;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.javafaker.Faker;
 
 import java.util.Locale;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class DataProducts {
 
+    @JsonProperty("nome")
     private String nome;
+    @JsonProperty("preco")
     private String preco;
+    @JsonProperty("descricao")
     private String descricao;
+    @JsonProperty("quantidade")
     private String quantidade;
 
 

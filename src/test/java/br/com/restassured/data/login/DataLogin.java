@@ -1,11 +1,16 @@
 package br.com.restassured.data.login;
 
 import br.com.restassured.data.user.DataUser;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import static br.com.restassured.commons.HandleProperties.getValue;
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class DataLogin {
 
+    @JsonProperty("email")
     private String email;
+    @JsonProperty("password")
     private String password;
 
 

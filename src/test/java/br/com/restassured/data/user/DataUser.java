@@ -1,15 +1,20 @@
 package br.com.restassured.data.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.javafaker.Faker;
 
 import java.util.Locale;
-
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class DataUser {
 
-
+    @JsonProperty("nome")
     private String nome;
+    @JsonProperty("email")
     private String email;
+    @JsonProperty("password")
     private String password;
+    @JsonProperty("administrador")
     private String administrador;
 
     public DataUser getUserSuccess(DataUser user){
